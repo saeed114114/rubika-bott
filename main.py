@@ -7,11 +7,19 @@ API_URL = f'https://botapi.rubika.ir/v3/{BOT_TOKEN}'
 def get_updates(offset=None):
     params = {'offset': offset} if offset else {}
     response = requests.get(f"{API_URL}/getUpdates", params=params)
-    return response.json()
+    try:
+        return response.json()
+    except Exception as e:
+        print("Error decoding JSON:", e, response.text)
+        return {"result": []}  # برگرداندن لیست خالی تا برنامه ادامه دهد
 
 def send_message(chat_id, text):
-    response = requests.post(f"{API_URL}/sendMessage", data={'chat_id': chat_id, 'text': text})
-    return response.json()
+    try:
+        response = requests.post(f"{API_URL}/sendMessage", data={'chat_id': chat_id, 'text': text})
+        return response.json()
+    except Exception as e:
+        print("Error sending message:", e)
+        return {}
 
 def main():
     offset = None
