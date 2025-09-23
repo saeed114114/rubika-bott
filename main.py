@@ -16,6 +16,12 @@ def send_message(chat_id, text):
 def home():
     return "Rubika bot is running!"
 
+# این مسیر برای تست دستی در مرورگر
+@app.route("/webhook", methods=["GET"])
+def test_get():
+    return "Webhook endpoint is live! Use POST to receive messages."
+
+# مسیر اصلی که روبیکا پیام‌ها را به آن می‌فرستد
 @app.route("/webhook", methods=["POST"])
 def webhook():
     try:
@@ -23,8 +29,6 @@ def webhook():
         message = data.get('message', {})
         text = message.get('text', '')
         chat_id = message.get('chat_id', '')
-
-        # نمونه پاسخ به پیام "سلام"
         if 'سلام' in text:
             send_message(chat_id, 'علیک سلام')
     except Exception as e:
