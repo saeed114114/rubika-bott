@@ -1,15 +1,16 @@
 import requests
 from flask import Flask, request, jsonify
 
+# توکن ربات خودت را اینجا قرار بده
 BOT_TOKEN = "CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV"
-API_URL = f'https://botapi.rubika.ir/v3/{CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV}'
+API_URL = f'https://botapi.rubika.ir/v3/{BOT_TOKEN}'
 
 app = Flask(__name__)
 
 def send_message(chat_id, text):
     url = f'{API_URL}/sendMessage'
     payload = {'chat_id': chat_id, 'text': text}
-    response = requests.post(url, data=payload)
+    response = requests.post(url, json=payload)  # استفاده از JSON به جای data
     return response.json()
 
 @app.route("/")
