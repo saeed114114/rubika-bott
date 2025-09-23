@@ -47,5 +47,6 @@ if name == "main":
     # اجرای ربات در یک Thread جدا
     threading.Thread(target=run_bot, daemon=True).start()
 
+    # دریافت پورت از متغیر محیطی لیارا
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
