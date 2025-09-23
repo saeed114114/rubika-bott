@@ -5,6 +5,7 @@
   "env": {
     "BOT_TOKEN": "CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV"
   },
+  "port": 80,
   "disks": [],
   "build": {
     "location": "iran"
