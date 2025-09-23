@@ -1,7 +1,6 @@
 import requests
 from flask import Flask, request, jsonify
 
-# توکن ربات خودت را اینجا قرار بده
 BOT_TOKEN = "CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV"
 API_URL = f'https://botapi.rubika.ir/v3/{BOT_TOKEN}'
 
@@ -10,7 +9,7 @@ app = Flask(__name__)
 def send_message(chat_id, text):
     url = f'{API_URL}/sendMessage'
     payload = {'chat_id': chat_id, 'text': text}
-    response = requests.post(url, json=payload)  # استفاده از JSON به جای data
+    response = requests.post(url, data=payload)
     return response.json()
 
 @app.route("/")
@@ -24,6 +23,8 @@ def webhook():
         message = data.get('message', {})
         text = message.get('text', '')
         chat_id = message.get('chat_id', '')
+
+        # نمونه پاسخ به پیام "سلام"
         if 'سلام' in text:
             send_message(chat_id, 'علیک سلام')
     except Exception as e:
