@@ -2,11 +2,8 @@
   "app": "epic-dirac-epmedhnbm",
   "platform": "python",
   "type": "worker",
-  "env": {
-    "BOT_TOKEN": "CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV"
-  },
-  "port": 80,
   "disks": [],
+  "port": 80,
   "build": {
     "location": "iran"
   }
