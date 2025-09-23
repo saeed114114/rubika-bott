@@ -43,7 +43,7 @@ def run_bot():
 def home():
     return "Rubika bot is running!"
 
-if name == "main":
+if __name__ == "__main__":
     # اجرای ربات در یک Thread جدا
     threading.Thread(target=run_bot, daemon=True).start()
 
