@@ -1,7 +1,6 @@
 import requests
 from flask import Flask, request, jsonify
 
-# ⚡ توکن ربات را اینجا قرار بده
 BOT_TOKEN = "CCDBE0LFKZCPFRIVTEQMMPAQHFIZANGDNQYLWSBEFXXGXOGGOAYBTNPGUQJRWRWV"
 API_URL = f'https://botapi.rubika.ir/v3/{BOT_TOKEN}'
 
@@ -31,5 +30,4 @@ def webhook():
     return jsonify({"status": "ok"})
 
 if __name__ == "__main__":
-    port = 80
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=80)
