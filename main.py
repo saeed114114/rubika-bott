@@ -8,7 +8,7 @@ from flask import Flask
 BOT_TOKEN = os.getenv("BOT_TOKEN", "YOUR_BOT_TOKEN")
 API_URL = f'https://botapi.rubika.ir/v3/{BOT_TOKEN}'
 
-app = Flask(name)
+app = Flask(name)  # اصلاح شده: name به جای name
 
 def get_updates(offset=None):
     url = f'{API_URL}/getUpdates'
